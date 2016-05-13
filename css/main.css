@@ -60,12 +60,50 @@ body {
     margin-left: 300px;
 }
 .taskInput {
+    height: 50px;
     border: 0;
     background-color: #7A9575;
     color: white;
-    width: 1592px;
+    width: 1590px;
 }
-::-webkit-input-placeholder { color: red; opacity: 1 !important; }
-:-moz-placeholder { color: red;}
-::-moz-placeholder {color: red;}
-:-ms-input-placeholder {color: red;}
+
+/* enable absolute positioning */
+
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+/* add padding  */
+
+.left-addon input {
+    padding-left: 30px;
+}
+.right-addon input {
+    padding-right: 30px;
+}
+.glyphonicInInput {
+  margin-left: -5px;
+  margin-top: 2px;
+    color: #B2C4B1;
+    font-size: 20px;
+}
+.rightSideGlyphonic {
+  padding-left: 155px;
+}
