@@ -12,11 +12,13 @@
                     <div class="col-xs-1">
                         <span class="glyphicon glyphicon-menu-hamburger " id="btn-HideMenu" aria-hidden="true"></span>
                     </div>
-                    <div class="col-xs-9">
-                        <input type="text" class="form-control searchInput" placeholder="Search for...">
-                    </div>
-                    <div class="col-xs-1">
-                        <span class="glyphicon glyphicon-search" id="btn-searchIcon" aria-hidden="true"></span>
+                    <div id="hideLeftMenu">
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control searchInput" placeholder="Search for...">
+                        </div>
+                        <div class="col-xs-1">
+                            <span class="glyphicon glyphicon-search" id="btn-searchIcon" aria-hidden="true"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,22 +30,21 @@
                             Skrzynka Odbiorcza
                         </span>
                     </div>
-                    <div class="col-md-2 rightSideGlyphonic">
-                        <span>
-                            <span class="glyphicon glyphicon-user glyphonicColor" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-sort-by-alphabet-alt glyphonicColor" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
-                        </span>
+                </div>
+            </div>
+
+            <div class="newTask">
+                <div class="col-md-12 ">
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-plus glyphonicInInput"></i>
+                        <input type="text" class="form-control taskInput" placeholder="Add New Task..."/>
                     </div>
                 </div>
             </div>
 
             <div class=" newTask">
-                <div class="col-md-11 ">
-                    <div class="inner-addon left-addon">
-                        <i class="glyphicon glyphicon-plus glyphonicInInput"></i>
-                        <input type="text" class="form-control taskInput" placeholder="Add New Task..."/>
-                    </div>
+                <div class="col-md-12 compleatedTask">
+                    <button type="button" class="btn btn-default btn-CompleatedTask">Compleated Tasks</button>
                 </div>
             </div>
 
