@@ -1,15 +1,15 @@
 var condiction = false;
 
-var html = '<div class="newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""></label>';
+var html = '<div class="newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""  class="checked"  onclick=handleClick()></label>';
 var closeHtmlTags = '</span></span></div></div>';
 
-$(document).ready(function() {
 
+
+$(document).ready(function() {
 
     class Task {
         constructor(text) {
             this.text = text;
-            var code = $("");
         }
     }
 
@@ -31,23 +31,28 @@ $(document).ready(function() {
         }
     });
 
-
-    $(function() {
-        var $button = $('.button').clone();
-        $('.package').html($button);
+    $(".taskInput").keypress(function(e) {
+        if (e.which == 13) {
+            var value = $(".taskInput").val();
+            if (value.length > 0) {
+                var userTask = new Task(value);
+                var htmlTask = html + userTask.text + closeHtmlTags;
+                $('.hide').after(htmlTask);
+            } else {
+                alert("Task is to short");
+            }
+        }
     });
-
-
-    $(".btn-CompleatedTask").click(function() {
-        var value = $(".taskInput").val();
-        var userTask = new Task(value);
-        var htmlTask = html + userTask.text + closeHtmlTags;
-        $('.asd').after(htmlTask);
-    });
-
-
-
-
-
-
 });
+
+var handleClick = function() {
+
+    $('input[type=checkbox]').each(function() {
+     var $button =  $(this).closest('.newTask').clone();
+        if (this.checked) {
+          $(this).closest('.newTask').remove();
+          alert($button);
+            $('.hide').after($button);
+        }
+    });
+}

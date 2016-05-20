@@ -123,3 +123,8 @@
         position: absolute;
         margin-left: -25px;
     }
+.hide {
+}
+.visible {
+  visibility: hidden;
+}
