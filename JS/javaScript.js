@@ -5,6 +5,14 @@ var closeHtmlTags = '</span></span></div></div>';
 
 $(document).ready(function() {
 
+
+    class Task {
+        constructor(text) {
+            this.text = text;
+            var code = $("");
+        }
+    }
+
     $('#btn-HideMenu').on('click', function() {
         if (condiction === false) {
             condiction = true;
@@ -38,13 +46,6 @@ $(document).ready(function() {
     });
 
 
-    class Task {
-        constructor(text) {
-            this.text = text;
-            var code = $("");
-
-        }
-    }
 
 
 
