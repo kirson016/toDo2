@@ -1,6 +1,6 @@
 var condiction = false;
 
-var html = '<div class="newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""  class="checked"  onclick=handleClick()></label>';
+var html = '<div class="taskCopy newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""  class="checked"  onclick=handleClick()></label>';
 var closeHtmlTags = '</span></span></div></div>';
 
 
@@ -38,6 +38,7 @@ $(document).ready(function() {
                 var userTask = new Task(value);
                 var htmlTask = html + userTask.text + closeHtmlTags;
                 $('.hide').after(htmlTask);
+                $(".taskInput").val("");
             } else {
                 alert("Task is to short");
             }
@@ -48,11 +49,26 @@ $(document).ready(function() {
 var handleClick = function() {
 
     $('input[type=checkbox]').each(function() {
-     var $button =  $(this).closest('.newTask').clone();
+        var $button = $(this).closest('.taskCopy').clone();
         if (this.checked) {
-          $(this).closest('.newTask').remove();
-          alert($button);
+            $(this).closest('.newTask').remove();
+            $('.compleatedTasks').append($button);
+        } else {
+            $(this).closest('.newTask').remove();
             $('.hide').after($button);
         }
     });
+
+    $('.btn-CompleatedTask').on('click', function() {
+        let CompleatedTaskcondiction = false;
+        if (condiction === false) {
+            $(".compleatedTasks").attr("style", "visibility: visible");
+            condiction = true;
+
+        } else {
+            condiction = false;
+            $(".compleatedTasks").attr("style", "visibility: hidden");
+        }
+    });
+
 }
