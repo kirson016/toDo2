@@ -1,5 +1,5 @@
 var condiction = false;
-
+var arrayOfTasks = [];
 var html = '<div class="taskCopy newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""  class="checked"  onclick=handleClick()></label>';
 var closeHtmlTags = '</span></span></div></div>';
 
@@ -11,6 +11,7 @@ $(document).ready(function() {
         constructor(text) {
             this.text = text;
         }
+
     }
 
     $('#btn-HideMenu').on('click', function() {
@@ -36,6 +37,7 @@ $(document).ready(function() {
             var value = $(".taskInput").val();
             if (value.length > 0) {
                 var userTask = new Task(value);
+                  arrayOfTasks.push(userTask);
                 var htmlTask = html + userTask.text + closeHtmlTags;
                 $('.hide').after(htmlTask);
                 $(".taskInput").val("");
@@ -44,6 +46,42 @@ $(document).ready(function() {
             }
         }
     });
+
+    $(".searchInput").keypress(function(e) {
+        if (e.which == 13) {
+            var searchValue = $(".searchInput").val();
+            $(".compleatedTasks").attr("style", "visibility: hidden");
+            if (searchValue.length > 0) {
+                for (var i = 0; i < arrayOfTasks.length; i++) {
+                  let str = arrayOfTasks[i].text;
+                    if (str.indexOf(searchValue) >= 0) {
+                        alert(searchValue);
+                    } else {
+                      $( "htmlTask" ).addClass( "visibility" );
+                        alert("Task not found");
+                    }
+                    //alert(arrayOfTasks[0].text);
+                }
+
+            } else {
+                alert("You need type something in input");
+            }
+        }
+    });
+
+    $('.btn-CompleatedTask').on('click', function() {
+        let CompleatedTaskcondiction = false;
+        if (condiction === false) {
+            $(".compleatedTasks").attr("style", "visibility: visible");
+            condiction = true;
+        } else {
+            condiction = false;
+            $(".compleatedTasks").attr("style", "visibility: hidden");
+        }
+    });
+
+
+
 });
 
 var handleClick = function() {
@@ -58,17 +96,4 @@ var handleClick = function() {
             $('.hide').after($button);
         }
     });
-
-    $('.btn-CompleatedTask').on('click', function() {
-        let CompleatedTaskcondiction = false;
-        if (condiction === false) {
-            $(".compleatedTasks").attr("style", "visibility: visible");
-            condiction = true;
-
-        } else {
-            condiction = false;
-            $(".compleatedTasks").attr("style", "visibility: hidden");
-        }
-    });
-
-}
+};

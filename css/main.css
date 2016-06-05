@@ -138,3 +138,6 @@
     .compleatedTasks {
         visibility: hidden;
     }
+    .visibility {
+      visibility: hidden;
+    }
