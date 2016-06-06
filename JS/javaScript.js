@@ -2,6 +2,7 @@ var condiction = false;
 var arrayOfTasks = [];
 var html = '<div class="taskCopy newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""  class="checked"  onclick=handleClick()></label>';
 var closeHtmlTags = '</span></span></div></div>';
+var htmlFindTask = '<div class="taskCopy newTask">    <div class="col-md-12 ">        <span="inner-addon left-addon">            <span class="form-control responce">                <label class="checkBox"><input type="checkbox" value=""  class="checked"></label>';
 
 
 
@@ -37,7 +38,7 @@ $(document).ready(function() {
             var value = $(".taskInput").val();
             if (value.length > 0) {
                 var userTask = new Task(value);
-                  arrayOfTasks.push(userTask);
+                arrayOfTasks.push(userTask);
                 var htmlTask = html + userTask.text + closeHtmlTags;
                 $('.hide').after(htmlTask);
                 $(".taskInput").val("");
@@ -51,21 +52,24 @@ $(document).ready(function() {
         if (e.which == 13) {
             var searchValue = $(".searchInput").val();
             $(".compleatedTasks").attr("style", "visibility: hidden");
+            let checkResult = arrayOfTasks.length;
             if (searchValue.length > 0) {
                 for (var i = 0; i < arrayOfTasks.length; i++) {
-                  let str = arrayOfTasks[i].text;
+                    let str = arrayOfTasks[i].text;
                     if (str.indexOf(searchValue) >= 0) {
-                        alert(searchValue);
-                    } else {
-                      $( "htmlTask" ).addClass( "visibility" );
+                        let foundTask = htmlFindTask + arrayOfTasks[i].text + closeHtmlTags;
+                        $(".tasksContent").attr("style", "visibility: hidden");
+                        $('.searchTasksResult').append(foundTask);
+                        $(".searchTasksResult").attr("style", "visibility: visible");
+                        checkResult = +1;
+                    } else if (checkResult - 1 == i) {
                         alert("Task not found");
                     }
-                    //alert(arrayOfTasks[0].text);
                 }
-
             } else {
                 alert("You need type something in input");
             }
+            $(".searchInput").val("");
         }
     });
 
@@ -79,8 +83,6 @@ $(document).ready(function() {
             $(".compleatedTasks").attr("style", "visibility: hidden");
         }
     });
-
-
 
 });
 
@@ -97,3 +99,8 @@ var handleClick = function() {
         }
     });
 };
+
+var viewTask = function() {
+    $(".searchTasksResult div").html(" ");
+    $(".tasksContent").attr("style", "visibility: visibility");
+}

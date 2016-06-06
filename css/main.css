@@ -141,3 +141,6 @@
     .visibility {
       visibility: hidden;
     }
+.searchTasksResult {
+  visibility: hidden;
+}

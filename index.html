@@ -26,46 +26,51 @@
             <div class="topMenu ">
                 <div class=" possition">
                     <div class="col-md-10 ">
-                        <span clas="text-center ">
+                        <span clas="text-center ViewTask " onclick="viewTask()">
                             Skrzynka Odbiorcza
                         </span>
                     </div>
                 </div>
             </div>
 
-            <div class="newTask">
-                <div class="col-md-12 ">
-                    <div class="inner-addon left-addon">
-                        <i class="glyphicon glyphicon-plus glyphonicInInput"></i>
-                        <input type="text" class="form-control taskInput" placeholder="Add New Task..."/>
+            <div class="searchTasksResult"></div>
+
+            <div class="tasksContent">
+
+                <div class="newTask">
+                    <div class="col-md-12 ">
+                        <div class="inner-addon left-addon">
+                            <i class="glyphicon glyphicon-plus glyphonicInInput"></i>
+                            <input type="text" class="form-control taskInput" placeholder="Add New Task..."/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="space">
-                <div class="col-md-12 ">
-                    <p></p>
+                <div class="space">
+                    <div class="col-md-12 ">
+                        <p></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="hide"></div>
+                <div class="hide"></div>
 
-            <div class="newTask">
-                <div class="col-md-12 compleatedTask">
-                    <button type="button" class="btn btn-default btn-CompleatedTask">Compleated Tasks</button>
+                <div class="newTask">
+                    <div class="col-md-12 compleatedTask">
+                        <button type="button" class="btn btn-default btn-CompleatedTask">Compleated Tasks</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="space">
-                <div class="col-md-12 ">
-                    <p></p>
+                <div class="space">
+                    <div class="col-md-12 ">
+                        <p></p>
+                    </div>
                 </div>
+
+                <div class="compleatedTasks"></div>
+
             </div>
 
-            <div class="compleatedTasks"></div>
-
-        </div>
-        <script src="JS\jquery-2.2.3.js"></script>
-        <script src="JS\javaScript.js"></script>
-    </body>
-</html>
+            <script src="JS\jquery-2.2.3.js"></script>
+            <script src="JS\javaScript.js"></script>
+        </body>
+    </html>
